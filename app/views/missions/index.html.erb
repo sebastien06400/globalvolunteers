@@ -1,0 +1,7 @@
+<h1>Missions proposées :</h1>
+
+<% @missions.each do |mission| %>
+<%= mission.title %> <br> <br>
+<%= mission.description %> <br> <br>
+<%= mission.location %> <br> <br>
+<% end %>

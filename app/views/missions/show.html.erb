@@ -1,0 +1,8 @@
+<h1> <%= @mission.title  %></h1>
+
+<%= @mission.description %> <br> <br>
+<%= @mission.location %> <br> <br>
+
+<% if @quota %>
+ <p>Aidez-nous à atteindre les <%= @mission.quota %> bénévoles svp.</p>
+<% end %>
