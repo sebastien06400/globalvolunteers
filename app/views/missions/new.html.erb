@@ -1,1 +1,10 @@
 <h1>Ajouter une mission</h1>
+
+<%= simple_form_for(@mission) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :location %>
+  <%= f.input :description %>
+  <%= f.submit "Créer la mission" %>
+<% end %>
+
+<%= link_to "Retour", missions_path %>

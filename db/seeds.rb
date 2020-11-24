@@ -8,13 +8,14 @@
 
 Mission.destroy_all
 User.destroy_all
+Participation.destroy_all
 
-user1 = User.create!(fullname: "bob", city: "city", description: "ook", email: "mail@volunteers.com", password: "password")
+user1 = User.create!(fullname: "bob", city: "city", description: "ook", email: "test@volunteers.com", password: "password")
 
 puts "created #{User.count} users"
 
 
-mission1 = Mission.create!(title: "ramasser déchets sur la plage", location: "plage des catalans", description: "on ramasse les déchets pour la planète", user: user1)
+mission1 = Mission.create!(title: "ramasser déchets sur la plage", location: "plage des catalans", description: "on ramasse les déchets pour la planète", user: user1, quota: 300)
 mission2 = Mission.create!(title: "nourrir les sdf", location: "marseille", description: "on leur donne la soupe", user: user1)
 
 

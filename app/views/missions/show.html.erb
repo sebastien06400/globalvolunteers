@@ -1,8 +1,22 @@
 <h1> <%= @mission.title  %></h1>
 
-<%= @mission.description %> <br> <br>
-<%= @mission.location %> <br> <br>
+<p>Description : <%= @mission.description %></p> <br>
+<p>Localisation: <%= @mission.location %></p> <br>
 
-<% if @quota %>
- <p>Aidez-nous à atteindre les <%= @mission.quota %> bénévoles svp.</p>
+<% if @mission.quota %>
+ <p>Aidez-nous à atteindre les <%= @mission.quota %> bénévoles svp</p>
+ <%= "Nombre: #{@mission.participations.count} / #{@mission.quota}" %> <br> <br>
 <% end %>
+
+<%= link_to "RETOUR", missions_path %> <br>
+<% if @mission.users.include?(current_user) %>
+  <%= link_to "SE DESINSCRIRE", mission_participation_path(@mission), method: :delete %>
+<% else %>
+  <%= link_to "PARTICIPER", mission_participations_path(@mission), method: "post"  %>
+<% end %> <br>
+
+
+<% @mission.users.each do |user| %>
+  <%= user.fullname %>
+<% end %>
+

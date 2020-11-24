@@ -1,8 +1,8 @@
-
 <div class="container">
 <h1>Toutes les missions 🙌</h1>
 <div class="cards">
 <% @missions.each do |mission| %>
+  <%= link_to  mission_path(mission) do %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.changeboard.com/images/7532/default/shutterstock_282281111.jpg)">
     <h4><%= mission.title %></h4>
     <p><%= mission.location %></p>
@@ -10,5 +10,6 @@
     <p id="quota-mission"><i class="fas fa-user-friends"></i> 10/12</p>
   </div>
   <% end %>
+ <% end %>
 </div>
 </div>
