@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2020_11_24_195101) do
     t.index ["user_id"], name: "index_missions_on_user_id"
   end
 
+  create_table "participations", force: :cascade do |t|
+    t.bigint "mission_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mission_id"], name: "index_participations_on_mission_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "fullname"
     t.string "city"
@@ -46,4 +55,6 @@ ActiveRecord::Schema.define(version: 2020_11_24_195101) do
   end
 
   add_foreign_key "missions", "users"
+  add_foreign_key "participations", "missions"
+  add_foreign_key "participations", "users"
 end

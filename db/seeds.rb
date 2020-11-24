@@ -11,7 +11,7 @@ User.destroy_all
 
 user1 = User.create(fullname: "bob", city: "city", description: "ook", email: "maill", encrypted_password: "mdp")
 
-puts "created #{User.count} missions"
+puts "created #{User.count} users"
 
 
 mission1 = Mission.create(title: "ramasser déchets sur la plage", location: "plage des catalans", description: "on ramasse les déchets pour la planète", user: user1)
