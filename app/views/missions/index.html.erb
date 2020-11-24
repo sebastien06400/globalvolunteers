@@ -1,7 +1,10 @@
-<h1>Missions proposées :</h1>
+<h1>Toutes les missions :</h1>
 
 <% @missions.each do |mission| %>
-<%= mission.title %> <br> <br>
-<%= mission.description %> <br> <br>
-<%= mission.location %> <br> <br>
+<div>
+<%= mission.title %>
+<%= link_to 'DETAILS', mission_path(mission) %>
+</div>
 <% end %>
+
+<%= link_to "Créer une mision", new_mission_path  %>

@@ -1,7 +1,6 @@
 class MissionsController < ApplicationController
-  
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     @missions = Mission.all
   end
@@ -14,19 +13,19 @@ class MissionsController < ApplicationController
     @mission = Mission.new
   end
 
-  def create 
+  def create
     @mission = Mission.new(mission_params)
+    @mission.user = current_user
     if @mission.save
       redirect_to mission_path(@mission)
-    else 
+    else
       render :new
     end
   end
 
-  private 
+  private
 
   def mission_params
     params.require(:mission).permit(:title, :description, :location, :quota, :start_time, :end_time, :association, :done)
   end
-
 end
