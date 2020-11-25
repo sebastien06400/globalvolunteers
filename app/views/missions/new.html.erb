@@ -1,10 +1,15 @@
-<h1>Ajouter une mission</h1>
+<div class="container justify-content-center d-flex align-items-center">
+  <div class= "sign-form p-4">
 
-<%= simple_form_for(@mission) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :location %>
-  <%= f.input :description %>
-  <%= f.submit "Créer la mission" %>
-<% end %>
+    <h1>Ajouter une mission</h1>
 
-<%= link_to "Retour", missions_path %>
+    <%= simple_form_for(@mission) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :location %>
+      <%= f.input :description %>
+      <%= f.submit "Créer la mission" %>
+    <% end %>
+
+  <%= link_to "Retour", missions_path %>
+  </div>
+</div>
