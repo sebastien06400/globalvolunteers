@@ -3,6 +3,7 @@
 <p>Description : <%= @mission.description %></p> <br>
 <p>Localisation: <%= @mission.location %></p> <br>
 <p>Dates: <%= @mission.start_time %> - <%= @mission.end_time %> </p> <br>
+<p>Organisateur: <%= cl_image_tag @mission.user.photo.key, height: 300, width: 400,crop: :thumb, gravity: :face %></p>
 
 <% if @mission.quota %>
  <p>Aidez-nous à atteindre les <%= @mission.quota %> bénévoles svp</p>
