@@ -1,15 +1,35 @@
-<h1>Ajouter une mission</h1>
+<div class="container justify-content-center d-flex align-items-center">
+  <div class= "sign-form p-4">
+    <h1>Ajouter une mission</h1>
 
-<%= simple_form_for(@mission) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :asso %>
-  <%= f.input :location %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.input :quota %>
-  <%= f.input :description %>
-  <%= f.input :photo %>
-  <%= f.submit "Créer la mission" %>
-<% end %>
+    <%= simple_form_for(@mission) do |f| %>
+      <%= f.input :title,
+                  label: false,
+                  placeholder: "Le titre de la mission"%>
+      <%= f.input :asso,
+                  label: false,
+                  placeholder: "Le nom de l'association"%>
+      <%= f.input :location ,
+                  label: false,
+                  placeholder: "Le lieu de la mission"%>
+      <%= f.input :start_time ,
+                  label: false,
+                  placeholder: "Date de début"%>
+      <%= f.input :end_time ,
+                  label: false,
+                  placeholder: "Date de fin"%>
+      <%= f.input :quota ,
+                  label: false,
+                  placeholder: "Le nombre de personnes maximum"%>
+      <%= f.input :description ,
+                  label: false,
+                  placeholder: "Décrivez-nous la mission"%>
+      <%= f.input :photo ,
+                  label: false,
+                  placeholder: "Insérer une photo"%>
+      <%= f.submit "Créer la mission", class: "btn btn-ghost"%>
+    <% end %>
 
-<%= link_to "Retour", missions_path %>
+    <%= link_to "Retour", missions_path %>
+</div>
+</div>
