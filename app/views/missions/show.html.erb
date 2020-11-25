@@ -2,6 +2,7 @@
 
 <p>Description : <%= @mission.description %></p> <br>
 <p>Localisation: <%= @mission.location %></p> <br>
+<p>Dates: <%= @mission.start_time %> - <%= @mission.end_time %> </p> <br>
 
 <% if @mission.quota %>
  <p>Aidez-nous à atteindre les <%= @mission.quota %> bénévoles svp</p>
@@ -17,8 +18,8 @@
 
 
 <% @mission.users.each do |user| %>
-  <%= user.fullname %>
-<% end %>
+  <%= cl_image_tag user.photo.key, height: 300, width: 400,crop: :thumb, gravity: :face %>
+<% end %> <br>
 
 <% if @mission.photo.attached? %>
   <%= cl_image_tag @mission.photo.key, height: 300, width: 400, crop: :fill %>
