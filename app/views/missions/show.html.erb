@@ -3,7 +3,7 @@
     <h1> <%= @mission.title.capitalize  %></h1>
 
       <p class= "font-weight-bold ">  <i class="fas fa-map-marker-alt"></i> Localisation: </p><p><%= @mission.location.capitalize %></p>
-      <p class= "font-weight-bold "><i class="far fa-clock"></i> Date: </p> <p><%= @mission.start_time%></p>
+      <p class= "font-weight-bold "><i class="far fa-clock"></i> Date: </p> <p><%= @mission.start_time %></p>
   </div>
   <div >
     <p>Organisé par : </p>
@@ -13,7 +13,6 @@
     </div>
   </div>
 </div>
-
 
 
 <div>
@@ -49,4 +48,3 @@
     <%= link_to "PARTICIPER", mission_participations_path(@mission), method: "post", class: "btn btn-ghost"  %>
   <% end %>
 </div>
-
