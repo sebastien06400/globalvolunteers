@@ -9,18 +9,15 @@
 
 .navbar a {
   color: #005C9C !important;
-  transition: border 200ms ease;
   display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 0px !important;
   }
 
 .navbar a:hover {
-  color: blue;
   border-bottom: 3px solid #005C9C;
-}
-
-.navbar .is-active a {
-border-bottom: 3px solid green;
-
+  transition: border 200ms ease;
 }
 
 .navbar .navbar-collapse {
@@ -29,6 +26,7 @@ border-bottom: 3px solid green;
 
 .navbar .navbar-brand img {
   width: 50px;
+  border-bottom: none;
 }
 
 
