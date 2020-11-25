@@ -2,7 +2,11 @@ class MissionsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @missions = Mission.all
+    if params[:user_id]
+      @missions = current_user.missions
+    else
+      @missions = Mission.all
+    end
   end
 
   def show
@@ -26,6 +30,6 @@ class MissionsController < ApplicationController
   private
 
   def mission_params
-    params.require(:mission).permit(:title, :description, :location, :quota, :start_time, :end_time, :association, :done)
+    params.require(:mission).permit(:title, :description, :location, :quota, :start_time, :end_time, :association, :done, :photo)
   end
 end
