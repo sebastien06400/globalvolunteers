@@ -8,19 +8,23 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto align-items-center">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item active mr-3">
           <%= link_to "ACCUEIL", root_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mr-3">
           <%= link_to "Découvrir", missions_path, class: "nav-link" %>
         </li>
-         <li class="nav-item">
+         <li class="nav-item mr-3">
           <%= link_to "Créer une mission", new_mission_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.photo.attached? %>
+              <%=cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 60, width: 60, crop: :fill, radius: 100, gravity: :face %>
+            <% else %>
+              <%= image_tag "photo-avatar-profil.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Mon profil", "#", class: "dropdown-item" %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
