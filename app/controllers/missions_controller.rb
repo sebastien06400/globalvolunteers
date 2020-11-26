@@ -5,12 +5,13 @@ class MissionsController < ApplicationController
     if params[:user_id]
       @missions = current_user.missions
     else
-      @missions = Mission.all
+    @missions = policy_scope(Mission).order(created_at: :desc)
     end
   end
 
   def show
     @mission = Mission.find(params[:id])
+    authorize @mission
     @markers = [{
       lat: @mission.latitude,
       lng: @mission.longitude
@@ -19,11 +20,13 @@ class MissionsController < ApplicationController
 
   def new
     @mission = Mission.new
+    authorize @mission
   end
 
   def create
     @mission = Mission.new(mission_params)
     @mission.user = current_user
+    authorize @mission
     if @mission.save
       redirect_to mission_path(@mission)
     else
