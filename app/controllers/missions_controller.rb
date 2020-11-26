@@ -11,6 +11,10 @@ class MissionsController < ApplicationController
 
   def show
     @mission = Mission.find(params[:id])
+    @markers = [{
+      lat: @mission.latitude,
+      lng: @mission.longitude
+    }]
   end
 
   def new
@@ -30,6 +34,6 @@ class MissionsController < ApplicationController
   private
 
   def mission_params
-    params.require(:mission).permit(:title, :description, :location, :quota, :start_time, :end_time, :association, :done, :photo)
+    params.require(:mission).permit(:title, :description, :location, :quota, :start_time, :end_time, :association, :done, :photo, :latitude, :longitude)
   end
 end
