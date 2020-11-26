@@ -60,12 +60,13 @@
 
 <div class = "d-flex justify-content-between mt-5 mx-4">
   <%= link_to "RETOUR", missions_path, class: "btn btn-ghost" %>
-  <%= link_to "SUPPRIMER", mission_path(@mission), method: :delete, class: "btn btn-ghost"  %>
-  <% if @mission.users.include?(current_user) %>
+  <% if policy(@mission).destroy? %>
+    <%= link_to "SUPPRIMER", mission_path(@mission), method: :delete, class: "btn btn-ghost red-bg"  %>
+<% end %>  
+<% if @mission.users.include?(current_user) %>
     <%= link_to "SE DESINSCRIRE", mission_participation_path(@mission), method: :delete, class: "btn btn-ghost" %>
   <% else %>
     <%= link_to "PARTICIPER", mission_participations_path(@mission), method: "post", class: "btn btn-ghost-blue"  %>
   <% end %>
 </div>
 </div>
-
