@@ -1,16 +1,9 @@
 <h2>Modifier mon profil</h2>
 <div class="container justify-content-center d-flex align-items-center">
 <div class= "sign-form p-4">
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
   <div class="form-inputs">
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
 
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
+    <%= simple_form_for @user, url: user_path(@user) do |f| %>
 
       <div class="form-inputs">
       <%= f.input :fullname,
@@ -32,20 +25,13 @@
                     autofocus: true,
                     input_html: { autocomplete: "Description" }%>
         <%= f.input :photo, as: :file %>
-        <%= f.submit "Mettre à jour", class: "btn btn-ghost" %>
-
       </div>
 
       <div class="form-actions">
+      <%= link_to "Mettre à jour", class: "btn btn-ghost", method: "put"  %>
       </div>
     <% end %>
 
   </div>
-<% end %>
 </div>
 </div>
-<%# <h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Supprimez mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sur?" }, method: :delete %>
-
-<%= link_to "Retour", :back  %>

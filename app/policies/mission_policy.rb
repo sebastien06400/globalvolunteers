@@ -15,7 +15,9 @@ class MissionPolicy < ApplicationPolicy
     return true
   end 
   def destroy?
-    record.user == user || user.admin
+    if user
+      record.user == user || user.admin
+    end
   end
 
 end

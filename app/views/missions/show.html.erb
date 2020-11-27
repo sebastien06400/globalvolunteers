@@ -52,10 +52,15 @@
    <% if user.photo.attached? %>
       <%=cl_image_tag user.photo.key, height: 120, width: 120, crop: :fill, radius: 100, gravity: :face, class: "mr-1 mb-1" %>
     <% else %>
-      <%= image_tag "photo-avatar-profil.png", class: "avatar-large mr-1 mb-1 " %>
+      <%= image_tag "photo-avatar-profil.png", class: "avatar-large mr-1 mb-1 " %> 
+      
+
+      <%# à virer ! c'est juste pour voir l'id du current_user, je l'ai foutu là pour le test mais vous pouvez le virer%>
+       <%= current_user.id  %>
+
+
     <% end %>
 <% end %>
-<%= image_tag "photo-avatar-profil.png", class: "avatar-large mr-1 mb-1 " %>
 </div>
 
 <div class = "d-flex justify-content-between mt-5 mx-4">
