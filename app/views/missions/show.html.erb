@@ -39,7 +39,11 @@
    <% if user.photo.attached? %>
       <%=cl_image_tag user.photo.key, height: 120, width: 120, crop: :fill, radius: 100, gravity: :face%>
     <% else %>
-      <%= image_tag "photo-avatar-profil.png", class: "avatar-large" %>
+      <%= image_tag "photo-avatar-profil.png", class: "avatar-large" %> 
+      
+      <%# à virer %>
+       <%= current_user.id  %>
+
     <% end %>
 <% end %> <br>
 
