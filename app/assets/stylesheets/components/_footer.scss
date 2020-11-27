@@ -2,27 +2,31 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background: #01244D;
+  background: #01244d;
   height: 50px;
   padding: 0px 50px;
   font-size: 13px;
   margin-top: 15px;
-  color: #FCFCFC !important;
+  color: #fcfcfc !important;
   position: relative;
   bottom: 0;
 }
 
 .footer a {
-  color: #FCFCFC !important;
+  color: #fcfcfc !important;
   display: inline-block;
   text-decoration: none;
-  margin-right : 7px;
+  margin-right: 7px;
   margin-left: 7px;
-  }
-
+}
 
 .footer a:hover {
-  border-bottom: 3px solid #FCFCFC;
+  border-bottom: 3px solid #fcfcfc;
   transition: border 200ms ease;
+}
 
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }
