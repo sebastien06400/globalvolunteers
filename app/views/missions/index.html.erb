@@ -1,13 +1,15 @@
+<div class = "container">
 <h1>Toutes les missions <i class="fas fa-hands-helping"></i></h1>
-<div class="cards bg-white p-3 mt-4">
+<div class="cards bg-white p-3 mt-4" style="min-height : 65vh">
 <% @missions.each do |mission| %>
   <%= link_to  mission_path(mission) do %>
   <div class="card-category p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.changeboard.com/images/7532/default/shutterstock_282281111.jpg)">
     <h4><%= mission.title.capitalize %></h4>
     <p><%= mission.location.capitalize %></p>
-    <p id="date-mission">10 janvier 2021</p>
-    <p id="quota-mission"><i class="fas fa-user-friends"></i> 10/12</p>
+    <p id="date-mission"><%=mission.start_time.strftime("%d/%m/%Y")%></p>
+    <p id="quota-mission"><i class="fas fa-user-friends"></i> <%="#{mission.participations.count}  / #{mission.quota}"%> </p>
   </div>
   <% end %>
  <% end %>
+</div>
 </div>
