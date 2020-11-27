@@ -14,5 +14,8 @@ class MissionPolicy < ApplicationPolicy
   def create?
     return true
   end 
+  def destroy?
+    record.user == user || user.admin
+  end
 
 end

@@ -34,6 +34,14 @@ class MissionsController < ApplicationController
     end
   end
 
+  def destroy
+    @mission = Mission.find(params[:id])
+    authorize @mission
+    @mission.destroy
+    redirect_to missions_path
+  end
+
+
   private
 
   def mission_params
